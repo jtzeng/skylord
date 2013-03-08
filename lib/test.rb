@@ -1,5 +1,5 @@
-# Rbot logging. TODO: Complete.
-# sdf
+# Rbot logging (crudely dumped from rbot @ http://ruby-rbot.org/).
+# TODO: Complete.
 
 # log IRC-related message +message+ to a file determined by +where+.
 # +where+ can be a channel name, or a nick for private message logging
@@ -15,17 +15,28 @@ def irclog(message, where="server")
 	puts "[#{stamp}] #{message}"
 end
 
-irclog('hi')
+irclog('wat')
+irclog('blah blah')
 
-'''
-irclog "@ #{sourcenick} is now known as #{nick}", k
-irclog "@ Quit: #{sourcenick}: #{message}", k
-irclog "@ Mode #{modestring} #{targets} by #{sourcenick}", channel
-irclog "@ #{sourcenick} set topic \"#{topic}\"", channel
-irclog "* #{@nick} #{message}", where
-irclog "<#{m.sourcenick}> #{m.message}", m.target
-irclog "-=#{@nick}=- #{message}", where
-irclog "@ #{m.sourcenick} joined channel #{m.channel}", m.channel
-irclog "@ #{m.sourcenick} left channel #{m.channel} (#{m.message})", m.channel
-irclog "@ #{m.target} has been kicked from #{m.channel} by #{m.sourcenick} (#{m.message})", m.channel
-'''
+# test:
+sourcenick = 'bob'
+nick = 'bobv2'
+message = 'hello'
+modestring = '+m'
+targets = ''
+topic = 'Welcome to #sdf! | etc'
+message = 'slaps joe around a bit with a large trout'
+
+irclog("@ #{sourcenick} is now known as #{nick}")
+irclog("@ Quit: #{sourcenick}: #{message}")
+irclog("@ Mode #{modestring} #{targets} by #{sourcenick}")
+irclog("@ #{sourcenick} set topic \"#{topic}\"")
+irclog("* #{nick} #{message}")
+
+message = 'hello i am bob'
+channel = '#sdf'
+
+irclog("<#{sourcenick}> #{message}")
+irclog("@ #{sourcenick} joined channel #{channel}")
+irclog("@ #{sourcenick} left channel #{channel} (#{message})")
+irclog("@ #{target} has been kicked from #{channel} by #{sourcenick} (#{message})")
